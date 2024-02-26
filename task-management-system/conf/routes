@@ -1,0 +1,31 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# https://www.playframework.com/documentation/latest/ScalaRouting
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+POST    /user/create                controllers.UserController.createUser()
+GET     /user/                      controllers.UserController.getAllUsers()
+GET     /user/get/:id               controllers.UserController.getUserById(id: Long)
+PUT     /user/update/:id            controllers.UserController.updateUserById(id: Long)
+DELETE  /user/delete/:id            controllers.UserController.deleteUserById(id: Long)
+GET     /user/:id/tasks             controllers.UserController.getAllMyTasks(id: Long)
+GET     /user/:id/comments          controllers.UserController.getAllMyComments(id: Long)
+
+POST    /task/create                controllers.TaskController.createTask()
+GET     /task/                      controllers.TaskController.getAllTasks()
+GET     /task/get/:id               controllers.TaskController.getTaskById(id: Long)
+PUT     /task/update/:id            controllers.TaskController.updateTaskById(id: Long)
+DELETE  /task/delete/:id            controllers.TaskController.deleteTaskById(id: Long)
+GET     /task/:id/comments          controllers.TaskController.getCommentsByTaskId(id: Long)
+
+POST    /comment/create             controllers.CommentController.createComment()
+GET     /comment/                   controllers.CommentController.getAllComments()
+GET     /comment/get/:id            controllers.CommentController.getCommentById(id: Long)
+PUT     /comment/update/:id         controllers.CommentController.updateCommentById(id: Long)
+DELETE  /comment/delete/:id         controllers.CommentController.deleteCommentById(id: Long)
